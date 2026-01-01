@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Acquista Python Pygame Snake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #222;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #444;
+        }
+        header h1 {
+            margin: 0;
+            color: #00ff66;
+        }
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #1b1b1b;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.6);
+        }
+        .game-info {
+            margin-bottom: 25px;
+        }
+        .price {
+            font-size: 1.4rem;
+            color: #ffd700;
+            margin: 10px 0;
+        }
+        .highlight {
+            color: #00ffcc;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin: 8px 0 4px;
+        }
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background: #111;
+            color: #f5f5f5;
+        }
+        .payment-methods {
+            margin: 10px 0 15px;
+        }
+        .payment-methods label {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        button {
+            background: #00cc66;
+            color: #111;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #00e676;
+        }
+        .note {
+            font-size: 0.85rem;
+            color: #bbbbbb;
+            margin-top: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Python Pygame Snake</h1>
+    <p>Gioco in Python con Pygame</p>
+</header>
+
+<main>
+    <section class="game-info">
+        <h2>Acquista il gioco</h2>
+        <p>
+            Stai per acquistare il gioco 
+            <span class="highlight">"Python Pygame Snake"</span>, 
+            una versione moderna del classico Snake sviluppata in Python con Pygame.
+        </p>
+        <p class="price">Prezzo: <strong>10,00 €</strong></p>
+        <p>
+            Dopo il pagamento riceverai il file <span class="highlight">.py</span> 
+            contenente il gioco, pronto da eseguire con Python e Pygame.
+        </p>
+    </section>
+
+    <section class="purchase-form">
+        <h2>Dati per l'acquisto</h2>
+        <form id="payment-form" onsubmit="fakeSubmit(event)">
+            <label for="name">Nome e cognome</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email (per invio del gioco)</label>
+            <input type="email" id="email" name="email" required>
+
+            <div class="payment-methods">
+                <p>Metodo di pagamento:</p>
+                <label>
+                    <input type="radio" name="payment" value="card" checked>
+                    Carta
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="cash">
+                    Contanti (accordo privato)
+                </label>
+            </div>
+
+            <div id="card-fields">
+                <label for="card-number">Numero carta</label>
+                <input type="text" id="card-number" name="card-number" placeholder="0000 0000 0000 0000">
+
+                <label for="card-name">Intestatario carta</label>
+                <input type="text" id="card-name" name="card-name" placeholder="Nome Cognome">
+
+                <label for="card-expiry">Scadenza (MM/AA)</label>
+                <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA">
+
+                <label for="card-cvv">CVV</label>
+                <input type="text" id="card-cvv" name="card-cvv" placeholder="123">
+            </div>
+
+            <button type="submit">Paga 10,00 €</button>
+
+            <p class="note">
+                © 2026 Titanium®. Tutti i diritti riservati.
+            </p>
+        </form>
+    </section>
+</main>
+
+<footer>
+    &copy; 2026 - Vendita di "Python Pygame Snake"
+</footer>
+
+<script>
+    const paymentRadios = document.querySelectorAll('input[name="payment"]');
+    const cardFields = document.getElementById('card-fields');
+
+    paymentRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.value === 'card') {
+                cardFields.style.display = 'block';
+            } else {
+                cardFields.style.display = 'none';
+            }
+        });
+    });
+
+    function fakeSubmit(event) {
+        event.preventDefault();
+        alert("Questa è una demo. Per pagamenti reali devi integrare un sistema di pagamento lato server.");
+    }
+</script>
+</body>
+</html>
